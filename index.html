@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontre a sua casa de sonho</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <span>
+                <a href="#">
+                    <i class="fa fa-home"></i>
+            </span>
+            </a>
+            <form class="search-form" action="https://www.google.com/maps/search/" method="get">
+                <div class="campo-pesquisa">
+                    <input type="text" id="pesquisa" placeholder="Pesquisar" name="pesquisa">
+                    <i class="fa fa-search" id="botao-pesquisar"></i>
+                </div>
+              </form>
+                <nav class="menu">
+                    <ul>
+                    
+                            <li><a href="#">Alugar</a></li>
+                    <li><a href="#">Arrendar</a></li>
+                    <li><a href="#">Comprar</a>
+                    
+                    </li>
+                    <li>
+                        <a href="#">Sobre</a>
+                    </li>
+                    <li><a href="form.html" target="_parent" class="sign-in">Sign In <i class="fa fa-sign-in"></i></a>
+                    </li>
+                <li><a href="#" class="sign-up">Sign Up</a></li>
+
+                    </ul>
+                    <button class="menu-button" type="button">
+                        <i class="fa fa-bars"></i>
+                        </button>
+                </nav>
+        </div>
+    </header>
+    
+         <div class="title-home">
+             <h1>Encontre a sua casa de sonho</h1>
+         </div>
+    
+    <section class="cards-container">
+        <div class="card">
+            <i class="fa fa-home"></i>
+            <h2>Encontre a casa perfeita para você</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </div>
+        <div class="card">
+            <i class="fa fa-users"></i>
+            <h2>União da família</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </div>
+        <div class="card">
+            <i class="fa fa-home"></i>
+            <h2>Encontre a casa perfeita para você</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </div>
+        <div class="card">
+            <i class="fa fa-users"></i>
+            <h2>União da família</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </div>
+    </section>
+    <section class="image-gallery">
+        <h2>Casas dos seus sonhos</h2>
+        <div class="image-container">
+            <img src="img1.jpg" alt="Casa 1">
+            <img src="img2.jpg" alt="Casa 2">
+            <img src="img3.jpg" alt="Casa 3">
+            <img src="img4.jpg" alt="Casa 4">
+        </div>
+    </section>
+    <script>
+        const botaoPesquisar = document.getElementById('botao-pesquisar');
+const inputPesquisa = document.getElementById('pesquisa');
+
+botaoPesquisar.addEventListener('click', () => {
+  // Realiza a pesquisa
+  const pesquisa = inputPesquisa.value;
+  console.log('Pesquisa:', pesquisa);
+
+  // ... código para realizar a pesquisa ...
+});
+
+//Menu burguer
+
+const menuButton = document.querySelector('.menu-button');
+const menu = document.querySelector('.menu');
+const mostraLista = document.querySelector('.menu ul')
+
+menuButton.addEventListener('click', () => {
+  menu.classList.toggle('active');
+  menuButton.classList.toggle('active');
+  mostraLista.classList.toggle('active')
+  menuButton.classList.replace('')
+
+});
+menu.addEventListener('click', (event) => {
+  event.stopPropagation();
+});
+
+//Header fixo
+
+const header = document.getElementById('header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 0) {
+    header.classList.add('fixed');
+  } else {
+    header.classList.remove('fixed');
+  }
+});
+
+    </script>
+    <footer>
+        <p>&copy; Ramos&Oliveira</p>
+        <!-- <p> <i class="fa fa-star"></i>Meu intuito é ajudar você<i class="fa fa-star"></i></p> -->
+        <ul class="icon-footer">
+            <li><a href="#"><i class="fa fa-telegram"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        </ul>
+    </footer>
+</body>
+</html>

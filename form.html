@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'> 
+    <style>
+        form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size:29px;
+}
+
+
+    .campo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  position: relative;
+}
+
+
+label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px 30px 10px 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: calc(100% - 40px);
+}
+
+input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+i {
+    position: absolute;
+  left: 10px;
+  font-size: 24px;
+  color: #ccc;
+  pointer-events: none;
+}
+
+input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+::placeholder {
+  color: #ccc;
+  opacity: 1; /* Opacidade total do placeholder */
+  transition: opacity 0.2s ease-in-out;
+}
+
+input:focus::placeholder {
+  opacity: 0; /* Apaga o placeholder quando o input recebe foco */
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #00f;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00c;
+}
+
+/* Mensagens de erro */
+.erro {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+    </style>
+</head>
+<body>
+  <form id="formulario" action="data.html">
+    <h2>Cadastro de Usuário</h2>
+    <div class="campo">
+      <i class="fa fa-user"></i>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+      <span class="erro"></span>
+    </div>
+    <div class="campo">
+      <i class="fa fa-envelope"></i>
+      <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+      <span class="erro"></span>
+    </div>
+    <div class="campo">
+      <i class="fa fa-lock"></i>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+      <span class="erro"></span>
+      <i class="fa fa-eye" id="mostrarSenha"></i>
+    </div>
+    <div class="campo">
+      <i class="fa fa-lock"></i>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Confirme sua senha" required>
+      <span class="erro"></span>
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+  
+      
+      <script>
+     const formulario = document.getElementById('formulario');
+const nomeInput = document.getElementById('nome');
+const emailInput = document.getElementById('email');
+const senhaInput = document.getElementById('senha');
+const confirmarSenhaInput = document.getElementById('confirmarSenha');
+
+formulario.addEventListener('submit'), async (e) => {
+  e.preventDefault();
+
+  // Validação do nome
+  if (!nomeInput.value) {
+    nomeInput.classList.add('erro');
+    nomeInput.nextElementSibling.textContent = 'Nome é obrigatório.';
+    return;
+  } else {
+    nomeInput.classList.remove('erro');
+    nomeInput.nextElementSibling.textContent = '';
+  }
+
+  // Validação do email
+  if (!emailInput.value) {
+    emailInput.classList.add('erro');
+    emailInput.nextElementSibling.textContent = 'Email é obrigatório.';
+    return;
+  } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+    emailInput.classList.add('erro');
+    emailInput.nextElementSibling.textContent = 'Email inválido.';
+    return;
+  } else {
+    emailInput.classList.remove('erro');
+    emailInput.nextElementSibling.textContent = '';
+  }
+
+  // Validação da senha
+  if (!senhaInput.value) {
+    senhaInput.classList.add('erro');
+    senhaInput.nextElementSibling.textContent = 'Senha é obrigatória.';
+    return;
+  } else if (senhaInput.value.length < 8) {
+    senhaInput.classList.add('erro');
+    senhaInput.nextElementSibling.textContent = 'Senha deve ter no mínimo 8 caracteres.';
+    return;
+  } else {
+    senhaInput.classList.remove('erro');
+    senhaInput.nextElementSibling.textContent = '';
+  }
+
+  // Validação da confirmação da senha
+  if (!confirmarSenhaInput.value) {
+    confirmarSenhaInput.classList.add('erro');
+    confirmarSenhaInput.nextElementSibling.textContent = 'Confirmação da senha é obrigatória.';
+    return;
+  } else if (confirmarSenhaInput.value !== senhaInput.value) {
+    confirmarSenhaInput.classList.add('erro');
+    confirmarSenhaInput.nextElementSibling.textContent = 'As senhas não coincidem.';
+    return;
+  } else {
+    confirmarSenhaInput.classList.remove('erro');
+    confirmarSenhaInput.nextElementSibling.textContent = '';
+  }
+
+  // Se a validação for bem-sucedida, exibe o novo formulário
+  const formularioDataNascimento = document.getElementById('formularioDataNascimento');
+  formularioDataNascimento.classList.remove('escondido');
+
+  // Oculta o formulário atual
+  formulario.classList.add('escondido');
+};
+
+// Código para o novo formulário de data de nascimento
+
+const formularioDataNascimento = document.getElementById('formularioDataNascimento');
+const dataNascimentoInput = document.getElementById('dataNascimento');
+
+formularioDataNascimento.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Validação da data de nascimento
+  if (!dataNascimentoInput.value) {
+    dataNascimentoInput.classList.add('erro');
+    dataNascimentoInput.nextElementSibling.textContent = 'Data de nascimento é obrigatória.';
+    return;
+  } else {
+    dataNascimentoInput.classList.remove('erro');
+    dataNascimentoInput.nextElementSibling.textContent = '';
+  }
+
+  // Envio dos dados via Fetch
+  const dados = {
+    nome: nomeInput.value,
+    email: emailInput.value,
+    senha: senhaInput.value,
+    dataNascimento: dataNascimentoInput.value,
+  };
+
+  const resposta = await fetch('https://api.exemplo.com/usuarios', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(dados),
+  });
+
+  if (resposta.ok) {
+    // Exibe mensagem de sucesso
+    console.log('Dados enviados com sucesso!');
+    // Redirecionar para outra página
+    window.location.href = 'pagina-de-sucesso.html';
+  } else {
+    // Exibe mensagem de erro
+    console.log('Erro ao enviar dados:', resposta.statusText);
+    // Exibe a mensagem de erro na tela
+    const mensagemErro = document.getElementById('mensagemErro');
+    mensagemErro.textContent = resposta.statusText;
+    mensagemErro.style.display = 'block';
+  }
+});
+
+      </script>
+</body>
+</html>
+  
