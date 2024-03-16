@@ -134,6 +134,8 @@ width: 95%;
     animation: sombras-animadas 2s infinite;
 }
 
+
+
 .card i{
     font-size: 1.9em;
 }
@@ -340,12 +342,21 @@ span i{
 }
 
 @media (max-width: 768px) {
+/*Cabeçalho mobile*/
 
+header#header {
+  background-color: #000;
+ 
+}
   .title-home h1 {
-    background-image: url(imagens/pexels-daniel-frank-mobile.jpg);
+    background-image: url(imagens/vc499qjouu0-gary-bendig.jpg);
   }
     .card{
         width: 300px;
+    }
+
+    .card:hover{
+      box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.548);
     }
     .container {
       flex-direction: row;
@@ -382,7 +393,7 @@ span i{
       height: 100vh;
       transform: translateY(-2px);
       background-color:#242420a4;
-      color: white;
+      color: rgba(255, 255, 255, 0.397);
     }
 
     .menu-button.active{
@@ -435,9 +446,23 @@ span i{
   
     .menu-button {
       display: block;
+      color: white;
+    }
+
+    .campo-pesquisa #botao-pesquisar:hover {
+      color: #ffffffcb;
     }
 
     nav a:hover::after{
       width: 0%;
       }
+
+      footer{
+        background-color: #000;
+      }
+
+      footer a i{
+        color: white;
+        padding: 5px;
+       }
 }  
