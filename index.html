@@ -18,7 +18,7 @@
             <form class="search-form" action="https://www.google.com/maps/search/" method="get">
                 <div class="campo-pesquisa">
                     <input type="text" id="pesquisa" placeholder="Pesquisar" name="pesquisa">
-                    <i class="fa fa-search" id="botao-pesquisar"></i>
+                    <i class="fa fa-search" id="botao-pesquisar" onclick="searchof()"></i>
                 </div>
               </form>
                 <nav class="menu">
@@ -71,14 +71,24 @@
         </div>
     </section>
     <section class="image-gallery">
-        <h2>Casas dos seus sonhos</h2>
-        <div class="image-container">
-            <img src="img1.jpg" alt="Casa 1">
-            <img src="img2.jpg" alt="Casa 2">
-            <img src="img3.jpg" alt="Casa 3">
-            <img src="img4.jpg" alt="Casa 4">
+        <h2 style="text-align: center;">As melhores aqui</h2>
+        <p style="margin-bottom: 5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quisquam blanditiis autem tempore exercitationem illo. Eos, tenetur minus! Qui quasi eos repellat officiis quaerat tenetur exercitationem ex veritatis itaque necessitatibus?</p>
+        <div class="accordion-container">
+            <div class="accordio" style="background-image: url(imagens/rvore-de-coco-na-areia-branca-no-cu-azul-e-no-mar-de-turquesa-57513563.jpg);"></div>
+            <div class="accordio" style="background-image: url(imagens/back-tv.jpg);"></div>
+            <div class="accordio" style="background-image: url(imagens/tapeta-szron-pobielil-czerwone-roze.jpg);"></div>
+            <div class="accordio" style="background-image: url(imagens/vc499qjouu0-gary-bendig.jpg);"></div>
         </div>
     </section>
+    <footer class="dance-texto">
+        <p>&copy; Ramos&Oliveira</p>
+        <!-- <p> <i class="fa fa-star"></i>Meu intuito é ajudar você<i class="fa fa-star"></i></p> -->
+        <ul class="icon-footer">
+            <li><a href="#"><i class="fa fa-telegram"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        </ul>
+    </footer>
     <script>
         const botaoPesquisar = document.getElementById('botao-pesquisar');
 const inputPesquisa = document.getElementById('pesquisa');
@@ -120,15 +130,19 @@ window.addEventListener('scroll', () => {
   }
 });
 
+//Mostrar e esconder o campo de pesquisa
+
+// function searchof() {
+// var input = document.getElementById("pesquisa");
+// if (input.style.display === "none") {
+// input.style.display = "block"; // Exibe o input quando o ícone de pesquisa é clicado
+// input.style.transition = '2s'
+// } else {
+// input.style.display = "none"; // Oculta o input se já estiver visível e o ícone de pesquisa for clicado novamente
+// }
+// }
+
     </script>
-    <footer>
-        <p>&copy; Ramos&Oliveira</p>
-        <!-- <p> <i class="fa fa-star"></i>Meu intuito é ajudar você<i class="fa fa-star"></i></p> -->
-        <ul class="icon-footer">
-            <li><a href="#"><i class="fa fa-telegram"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        </ul>
-    </footer>
+   
 </body>
 </html>

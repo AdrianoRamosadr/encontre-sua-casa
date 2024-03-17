@@ -12,6 +12,8 @@
 } */
 
 /* Cabeçalho */
+
+
 header#header {
     background-color: rgb(196, 183, 2);
     position: fixed;
@@ -264,6 +266,28 @@ input:focus {
     width: 0%;
   }
 
+  /*Imagens accordion*/
+  .accordion-container{
+    display: flex;
+    
+   height: 80vh;
+  
+  }
+
+  .accordio{
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center center;
+    transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .accordio:hover{
+    flex:65vw;
+  }
+
 
 
   /*
@@ -275,6 +299,7 @@ footer{
   background-color: rgb(196, 183, 2);
   padding: 20px;
   flex-direction: column;
+  
 }
 
 footer p{
@@ -282,6 +307,7 @@ footer p{
   font-weight: 600;
   color: white;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.815);
+  animation: dance 1s infinite alternate;
 }
 
 footer p:nth-child(1){
@@ -306,7 +332,23 @@ footer ul li{
 footer a i{
  color: rgb(10, 5, 5);
  padding: 5px;
+ transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+footer a i:hover{
+  transform: translateY(-2px);
+}
+
+/*Animação para o texto do rodapé*/
+@keyframes dance {
+  from {
+  transform: translateY(0); /* Define a posição inicial */
+  }
+  to {
+  transform: translateY(-5px); /* Define a posição final */
+  }
+  }
+
 
   
 
@@ -323,23 +365,6 @@ span i{
     margin-bottom: 5px;
 } */
 
-@keyframes sombras-animadas {
-    /* 0%{
-        transform: translateY(0px);
-    }
-
-    15%{
-        transform: translateY(-2px);
-    }
-
-    35%{
-        transform: translateX(px);
-    }
-
-    55%{
-        transform: translateY(0px);
-    } */
-}
 
 @media (max-width: 768px) {
 /*Cabeçalho mobile*/
@@ -350,6 +375,7 @@ header#header {
 }
   .title-home h1 {
     background-image: url(imagens/vc499qjouu0-gary-bendig.jpg);
+    background-position: right center;
   }
     .card{
         width: 300px;
@@ -371,10 +397,22 @@ header#header {
     form {
       width: 100%;
     }
-  
+
+    /* input:focus{
+      background-color: #4b4b4b65;
+      color: white;
+      border-bottom: #fff;
+    }
+   */
     input {
+      background-color: #4b4b4b65;
+      outline: none;
+      border: none;
       width: 210px;
+      transition: 1s;
       margin-left: 20px;
+      color: white;
+      
     }
 
     .menu {
